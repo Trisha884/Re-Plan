@@ -20,58 +20,32 @@ import { useState, useEffect } from "react";
 
 export default function PriorityPage() {
   const [subjects, setSubjects] = useState([
-    {
-      id: 1,
-      name: "",
-      time: "",
-      unit: "Days",
-      priority: "",
-    },
-    {
-      id: 2,
-      name: "",
-      time: "",
-      unit: "Days",
-      priority: "",
-    },
+    { id: 1, name: "", time: "", unit: "Days", priority: "" },
+    { id: 2, name: "", time: "", unit: "Days", priority: "" },
   ]);
-
   const [step, setStep] = useState(1);
 
-  
   useEffect(() => {
-    const savedSubjects = localStorage.getItem("subjects");
-
-    if (savedSubjects) {
-      setSubjects(JSON.parse(savedSubjects));
-    }
+    const saved = localStorage.getItem("subjects");
+    if (saved) setSubjects(JSON.parse(saved));
   }, []);
 
-  function updateSubject(id, field, value) {
-    setSubjects((oldSubjects) =>
-      oldSubjects.map((subject) =>
-        subject.id === id
-          ? { ...subject, [field]: value }
-          : subject
-      )
-    );
+  function update(id, field, value) {
+    setSubjects(subjects.map(s =>
+      s.id === id ? { ...s, [field]: value } : s
+    ));
   }
 
-  function addSubject() {
-    setSubjects([
-      ...subjects,
-      {
-        id: Date.now(),
-        name: "",
-        time: "",
-        unit: "Days",
-        priority: "",
-      },
-    ]);
+  
+    function addSubject() {
+    setSubjects([...subjects, {
+      id: Date.now(), name: "", time: "", unit: "Days", priority: ""
+    }]);
   }
 
   function savePlan() {
     localStorage.setItem("subjects", JSON.stringify(subjects));
-    alert("Your plan has been saved!");
+    alert("Plan saved!");
   }
+
 }
