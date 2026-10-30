@@ -47,20 +47,25 @@ export default function PriorityPage() {
     localStorage.setItem("subjects", JSON.stringify(subjects));
     alert("Plan saved!");
   }
-    return (
-    <main className="min-h-screen bg-[#f7f3eb] p-6 text-[#40372f]">
-      <h1 className="mb-6 text-center text-3xl font-bold">
+      return (
+    <main className="min-h-screen bg-[#0B0B0D] p-6 text-[#F5F5F5]">
+      <h1 className="mb-6 text-center text-3xl font-bold text-[#D4AF37]">
         {step === 1 ? "Plan Your Subjects" : "Set Your Priorities"}
       </h1>
 
       {step === 1 ? (
         <div className="mx-auto max-w-xl space-y-4">
           {subjects.map((s, i) => (
-            <div key={s.id} className="rounded-xl bg-white p-4 shadow">
-              <h2 className="mb-2 font-bold">Subject {i + 1}</h2>
+            <div
+              key={s.id}
+              className="rounded-xl border border-[#3A3020] bg-[#171719] p-4 shadow-lg"
+            >
+              <h2 className="mb-2 font-bold text-[#D4AF37]">
+                Subject {i + 1}
+              </h2>
 
               <input
-                className="mb-3 w-full rounded border p-2"
+                className="mb-3 w-full rounded-lg border border-[#665323] bg-[#252528] p-3 text-white placeholder:text-gray-400 focus:border-[#D4AF37] focus:outline-none"
                 placeholder="Subject name"
                 value={s.name}
                 onChange={e => update(s.id, "name", e.target.value)}
@@ -68,7 +73,7 @@ export default function PriorityPage() {
 
               <div className="flex gap-2">
                 <input
-                  className="w-1/2 rounded border p-2"
+                  className="w-1/2 rounded-lg border border-[#665323] bg-[#252528] p-3 text-white placeholder:text-gray-400 focus:border-[#D4AF37] focus:outline-none"
                   type="number"
                   min="1"
                   placeholder="Deadline"
@@ -77,7 +82,7 @@ export default function PriorityPage() {
                 />
 
                 <select
-                  className="w-1/2 rounded border p-2"
+                  className="w-1/2 rounded-lg border border-[#665323] bg-[#252528] p-3 text-white focus:border-[#D4AF37] focus:outline-none"
                   value={s.unit}
                   onChange={e => update(s.id, "unit", e.target.value)}
                 >
@@ -89,13 +94,16 @@ export default function PriorityPage() {
             </div>
           ))}
 
-          <button onClick={addSubject} className="w-full rounded-lg border-2 p-3">
+          <button
+            onClick={addSubject}
+            className="w-full rounded-lg border border-[#D4AF37] p-3 font-semibold text-[#D4AF37] transition hover:bg-[#D4AF37] hover:text-black"
+          >
             + Add Subject
           </button>
 
           <button
             onClick={() => setStep(2)}
-            className="w-full rounded-lg bg-[#806247] p-3 text-white"
+            className="w-full rounded-lg bg-[#D4AF37] p-3 font-bold text-black transition hover:bg-[#E8C75A]"
           >
             Continue →
           </button>
@@ -103,16 +111,19 @@ export default function PriorityPage() {
       ) : (
         <div className="mx-auto max-w-xl space-y-4">
           {subjects.map((s, i) => (
-            <div key={s.id} className="flex items-center justify-between rounded bg-white p-3">
+            <div
+              key={s.id}
+              className="flex items-center justify-between rounded-xl border border-[#3A3020] bg-[#171719] p-4 shadow-lg"
+            >
               <div>
-                <p className="font-bold">{s.name}</p>
-                <p className="text-sm text-gray-500">
+                <p className="font-bold text-[#D4AF37]">{s.name}</p>
+                <p className="text-sm text-gray-400">
                   Deadline: {s.time} {s.unit}
                 </p>
               </div>
 
               <select
-                className="rounded border p-2"
+                className="rounded-lg border border-[#665323] bg-[#252528] p-2 text-white focus:border-[#D4AF37] focus:outline-none"
                 value={s.priority}
                 onChange={e => update(s.id, "priority", e.target.value)}
               >
@@ -126,11 +137,17 @@ export default function PriorityPage() {
             </div>
           ))}
 
-          <button onClick={() => setStep(1)} className="rounded border p-2">
+          <button
+            onClick={() => setStep(1)}
+            className="rounded-lg border border-[#665323] p-2 text-[#D4AF37] transition hover:bg-[#252528]"
+          >
             ← Back
           </button>
 
-          <button onClick={savePlan} className="ml-3 rounded bg-[#806247] p-2 text-white">
+          <button
+            onClick={savePlan}
+            className="ml-3 rounded-lg bg-[#D4AF37] p-2 font-bold text-black transition hover:bg-[#E8C75A]"
+          >
             Save Plan
           </button>
         </div>
