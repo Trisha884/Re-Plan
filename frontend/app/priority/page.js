@@ -37,4 +37,41 @@ export default function PriorityPage() {
   ]);
 
   const [step, setStep] = useState(1);
+
+  
+  useEffect(() => {
+    const savedSubjects = localStorage.getItem("subjects");
+
+    if (savedSubjects) {
+      setSubjects(JSON.parse(savedSubjects));
+    }
+  }, []);
+
+  function updateSubject(id, field, value) {
+    setSubjects((oldSubjects) =>
+      oldSubjects.map((subject) =>
+        subject.id === id
+          ? { ...subject, [field]: value }
+          : subject
+      )
+    );
+  }
+
+  function addSubject() {
+    setSubjects([
+      ...subjects,
+      {
+        id: Date.now(),
+        name: "",
+        time: "",
+        unit: "Days",
+        priority: "",
+      },
+    ]);
+  }
+
+  function savePlan() {
+    localStorage.setItem("subjects", JSON.stringify(subjects));
+    alert("Your plan has been saved!");
+  }
 }
