@@ -1,80 +1,90 @@
-Re-Plan – Design System
-1. Color Palette
-Re-Plan follows a modern dark theme with gold accents to create a clean, elegant and consistent user interface.
 
-Color Type	Color Code	Purpose
-Primary	#D4AF37	Main buttons, headings and highlights
-Secondary	#665323	Borders and secondary accents
-Background	#0B0B0D	Main application background
-Card Background	#171719	Cards, forms and content sections
-Input Background	#252528	Input fields and dropdowns
-Text	#F5F5F5	Main text
-Secondary Text	#9CA3AF	Descriptions and supporting text
-Success	#22C55E	Completed tasks and successful actions
-Error	#EF4444	Error messages and warnings
-2. Typography
-Font Family: Geist Sans
 
-Text Element	Font Size	Font Weight
-H1 – Main Heading	32px	Bold
-H2 – Section Heading	24px	Semi Bold
-H3 – Card Heading	20px	Semi Bold
-Body Text	16px	Regular
-Button Text	16px	Semi Bold
-Small Text	14px	Regular
-Typography should remain readable and consistent across all application pages.
+# Re-Plan | Design System
 
-3. UI Components
-The following reusable components will be used throughout Re-Plan.
+A unified visual language for a consistent, modern, and user-friendly experience.
 
-Navigation Bar
-Provides navigation between application pages.
+Re-Plan uses a minimal dark interface with elegant gold accents. This document defines the colors, typography, and reusable UI components used throughout the application.
 
-Uses a dark background with gold highlights.
+---
 
-Highlights the currently active page.
+## 01. Color Palette
 
-Buttons
-Primary buttons use a gold background with dark text.
+Our visual identity is based on a dark background complemented by gold highlights.
 
-Secondary buttons use a dark background with gold borders.
+### Core Colors
 
-Hover effects provide visual feedback.
+| Color | Hex Code | Usage |
+|---|---|---|
+| **Primary Gold** | `#D4AF37` | Buttons, headings, and highlights |
+| **Secondary Gold** | `#665323` | Borders and secondary accents |
+| **Background** | `#0B0B0D` | Main application background |
+| **Card Background** | `#171719` | Cards and content sections |
+| **Input Background** | `#252528` | Input fields and dropdowns |
+| **Primary Text** | `#F5F5F5` | Main content and headings |
+| **Secondary Text** | `#9CA3AF` | Descriptions and supporting text |
 
-Cards
-Used to display subjects, schedules and user information.
+---
 
-Dark background with subtle borders and rounded corners.
+## 02. Typography
 
-Input Fields
-Used for subject names, deadlines and other user information.
+**Font Family:** Geist Sans
 
-Dark input background with light text.
+A clean and readable typeface used throughout the application.
 
-Gold border highlight when focused.
+| Element | Font Size | Weight |
+|---|:---:|---|
+| Main Heading (H1) | 32px | Bold |
+| Section Heading (H2) | 24px | Semi Bold |
+| Card Heading (H3) | 20px | Semi Bold |
+| Body Text | 16px | Regular |
+| Button Text | 16px | Semi Bold |
+| Small Text | 14px | Regular |
 
-Dropdowns
-Used for selecting priorities, deadlines and other options.
+---
 
-Follow the dark-and-gold theme.
+ ## 03. UI Components
 
-Modal / Popup
-Displays additional information when a user selects a schedule item.
+Reusable UI components help maintain a consistent appearance across the application.
 
-Uses a dark background and clear action buttons.
+## Navigation Bar
+- Provides navigation between application pages.
+- Uses a dark background with gold highlights.
+- Highlights the currently active page.
 
-Sidebar
-Provides access to additional application features and user options.
+### Buttons
+- **Primary:** Gold background with dark text.
+- **Secondary:** Dark background with a gold border.
+- Includes hover and focus feedback.
 
-Maintains consistent styling with the main application.
+### Cards
+- Display subjects, schedules, and user information.
+- Use dark backgrounds, subtle borders, and rounded corners.
 
-Badges
-Used to display priority levels and task statuses.
+### Input Fields
+- Used for subject names, deadlines, and other information.
+- Use a dark background with light text.
+- Display a gold border when focused.
 
-Different colors indicate different states.
+### Dropdowns
+- Used for selecting priorities, deadlines, and other options.
+- Follow the dark-and-gold visual theme.
 
-Loading State
-Displays feedback while information is being loaded or processed.
+### Modal / Popup
+- Displays additional information when a schedule item is selected.
+- Uses a dark background with clearly visible action buttons.
 
-Empty State
-Displays a helpful message when no subjects or schedules are available.
+### Sidebar
+- Provides access to additional application features and user options.
+- Follows the same dark-and-gold theme.
+
+### Badges
+- Display priority levels and task statuses.
+- Use clear visual styles to distinguish different categories.
+
+### Loading State
+- Provides feedback while information is loading or being processed.
+
+### Empty State
+- Displays helpful messages when no subjects or schedules are available.
+
