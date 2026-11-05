@@ -63,6 +63,14 @@ export default function SchedulePage() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#080808] text-white">
+      <div className="flex justify-end mb-6">
+  <a
+    href="/priority"
+    className="text-[#D4AF37] font-semibold hover:underline"
+  >
+    ← Priority Plan
+  </a>
+</div>
       <div
         className="pointer-events-none fixed inset-0 opacity-40"
         style={{
@@ -179,6 +187,7 @@ export default function SchedulePage() {
           </section>
         </div>
       )}
+      
     </main>
   );
 }

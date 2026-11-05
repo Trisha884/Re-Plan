@@ -5,7 +5,7 @@
 //   return (
 //     <div className="flex min-h-screen flex-col items-center justify-center bg-yellow-100">
 //       <h1 className="text-4xl font-bold text-blue-700">
-//         Welcome to Re-Plan! 🎉
+//         Welcome to Re-Plan! 
 //       </h1>
 
 //       <p className="mt-4 text-lg text-gray-700">
@@ -49,6 +49,14 @@ export default function PriorityPage() {
   }
       return (
     <main className="min-h-screen bg-[#0B0B0D] p-6 text-[#F5F5F5]">
+      <div className="flex justify-end mb-6">
+  <a
+    href="/schedule"
+    className="text-[#D4AF37] font-semibold hover:underline"
+  >
+    Go to Schedule →
+  </a>
+</div>
       <h1 className="mb-6 text-center text-3xl font-bold text-[#D4AF37]">
         {step === 1 ? "Plan Your Subjects" : "Set Your Priorities"}
       </h1>
@@ -152,6 +160,7 @@ export default function PriorityPage() {
           </button>
         </div>
       )}
+      
     </main>
   );
 }
