@@ -35,17 +35,17 @@ export default function Profile() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-grey-200 mb-4">
+            <h3 className="text-xl font-semibold text-amber-200 mb-4">
               Completed Goals
             </h3>
 
-            <div className="flex gap-3">
-              <div className="bg-stone-800 p-4 rounded-lg justify-between">
+            <div className="flex flex-col gap-3">
+              <div className="bg-stone-800 p-4 rounded-lg flex justify-between">
                 <span>Learn Java OOP</span>
                 <span className="text-green-400">✓ Completed</span>
               </div>
 
-              <div className="bg-stone-600 p-4 rounded-lg flex justify-between">
+              <div className="bg-stone-800 p-4 rounded-lg flex justify-between">
                 <span>Finish DSA Assignment</span>
                 <span className="text-green-400">✓ Completed</span>
               </div>
