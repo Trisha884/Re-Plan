@@ -17,8 +17,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function PriorityPage() {
+  const router = useRouter();
   const [subjects, setSubjects] = useState([
     { id: 1, name: "", time: "", unit: "Days", priority: "" },
     { id: 2, name: "", time: "", unit: "Days", priority: "" },
@@ -44,9 +46,9 @@ export default function PriorityPage() {
   }
 
   function savePlan() {
-    localStorage.setItem("subjects", JSON.stringify(subjects));
-    alert("Plan saved!");
-  }
+  localStorage.setItem("subjects", JSON.stringify(subjects));
+  router.push("/schedule");
+}
       return (
     <main className="min-h-screen bg-[#0B0B0D] p-6 text-[#F5F5F5]">
       <div className="flex justify-end mb-6">
