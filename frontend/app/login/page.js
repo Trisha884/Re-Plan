@@ -8,7 +8,7 @@ export default function Login() {
 
   function handleLogin(event) {
     event.preventDefault();
-    router.push("/dashboard");
+    router.push("/homepage");
   }
 
   return (
@@ -26,7 +26,10 @@ export default function Login() {
 
       <main className="flex flex-col items-center justify-center flex-1 px-4 py-10">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-amber-200">Welcome Back</h2>
+          <h2 className="text-3xl font-bold text-amber-200">
+            Welcome Back
+          </h2>
+
           <p className="text-stone-400 mt-3">
             Continue your journey. One step at a time.
           </p>
@@ -37,7 +40,10 @@ export default function Login() {
           className="bg-stone-900 w-full max-w-sm p-8 rounded-2xl shadow-xl"
         >
           <div className="mb-5">
-            <label className="block mb-2 text-stone-200">Username</label>
+            <label className="block mb-2 text-stone-200">
+              Username
+            </label>
+
             <input
               type="text"
               placeholder="Enter your username"
@@ -47,7 +53,10 @@ export default function Login() {
           </div>
 
           <div className="mb-6">
-            <label className="block mb-2 text-stone-200">Password</label>
+            <label className="block mb-2 text-stone-200">
+              Password
+            </label>
+
             <input
               type="password"
               placeholder="Enter your password"

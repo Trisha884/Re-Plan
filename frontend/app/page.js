@@ -39,7 +39,7 @@ export default function Home() {
 
           <Link
             href="/login"
-            className="inline-block mt-8 bg-amber-500 text-stone-950 px-6 py-3 rounded-lg font-semibold hover:bg-amber-400 transition"
+            className=" inline-block  mt-8 bg-amber-500 text-stone-950 px-6 py-3 rounded-lg font-semibold hover:bg-amber-400 transition"
           >
             Get Started →
           </Link>
