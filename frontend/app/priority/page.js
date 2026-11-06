@@ -1,66 +1,51 @@
 
-// "use client";
 
-// export default function PriorityPage() {
-//   return (
-//     <div className="flex min-h-screen flex-col items-center justify-center bg-yellow-100">
-//       <h1 className="text-4xl font-bold text-blue-700">
-//         Welcome to Re-Plan! 
-//       </h1>
-
-//       <p className="mt-4 text-lg text-gray-700">
-//         My Priority Page is Working!
-//       </p>
-//     </div>
-//   );
-// }
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function PriorityPage() {
   const router = useRouter();
+
   const [subjects, setSubjects] = useState([
-    { id: 1, name: "", time: "", unit: "Days", priority: "" },
-    { id: 2, name: "", time: "", unit: "Days", priority: "" },
+    { id: 1, name: "", time: "", unit: "Days", deadline: "", priority: "" },
+    { id: 2, name: "", time: "", unit: "Days", deadline: "", priority: "" },
   ]);
+
   const [step, setStep] = useState(1);
 
-  useEffect(() => {
-    const saved = localStorage.getItem("subjects");
-    if (saved) setSubjects(JSON.parse(saved));
-  }, []);
-
   function update(id, field, value) {
-    setSubjects(subjects.map(s =>
-      s.id === id ? { ...s, [field]: value } : s
-    ));
+    setSubjects(
+      subjects.map((s) =>
+        s.id === id ? { ...s, [field]: value } : s
+      )
+    );
   }
 
-  
-    function addSubject() {
-    setSubjects([...subjects, {
-      id: Date.now(), name: "", time: "", unit: "Days", priority: ""
-    }]);
+  function addSubject() {
+    setSubjects([
+      ...subjects,
+      {
+        id: Date.now(),
+        name: "",
+        time: "",
+        unit: "Days",
+        deadline: "",
+        priority: "",
+      },
+    ]);
   }
 
   function savePlan() {
-  localStorage.setItem("subjects", JSON.stringify(subjects));
-  router.push("/schedule");
-}
-      return (
+    localStorage.setItem("subjects", JSON.stringify(subjects));
+    router.push("/schedule");
+  }
+
+  return (
     <main className="min-h-screen bg-[#0B0B0D] p-6 text-[#F5F5F5]">
-      <div className="flex justify-end mb-6">
-  <a
-    href="/schedule"
-    className="text-[#D4AF37] font-semibold hover:underline"
-  >
-    Go to Schedule →
-  </a>
-</div>
       <h1 className="mb-6 text-center text-3xl font-bold text-[#D4AF37]">
-        {step === 1 ? "Plan Your Subjects" : "Set Your Priorities"}
+        {step === 1 ? "Plan Your Goals" : "Set Your Priorities"}
       </h1>
 
       {step === 1 ? (
@@ -71,49 +56,61 @@ export default function PriorityPage() {
               className="rounded-xl border border-[#3A3020] bg-[#171719] p-4 shadow-lg"
             >
               <h2 className="mb-2 font-bold text-[#D4AF37]">
-                Subject {i + 1}
+                Goal {i + 1}
               </h2>
 
               <input
-                className="mb-3 w-full rounded-lg border border-[#665323] bg-[#252528] p-3 text-white placeholder:text-gray-400 focus:border-[#D4AF37] focus:outline-none"
-                placeholder="Subject name"
+                className="mb-3 w-full rounded-lg border border-[#665323] bg-[#252528] p-3 text-white"
+                placeholder="Goal name"
                 value={s.name}
-                onChange={e => update(s.id, "name", e.target.value)}
+                onChange={(e) => update(s.id, "name", e.target.value)}
               />
 
-              <div className="flex gap-2">
+              <p className="mb-2 text-sm text-gray-300">Time needed</p>
+
+              <div className="mb-4 flex gap-2">
                 <input
-                  className="w-1/2 rounded-lg border border-[#665323] bg-[#252528] p-3 text-white placeholder:text-gray-400 focus:border-[#D4AF37] focus:outline-none"
+                  className="w-1/2 rounded-lg border border-[#665323] bg-[#252528] p-3 text-white"
                   type="number"
                   min="1"
-                  placeholder="Deadline"
+                  placeholder="Duration"
                   value={s.time}
-                  onChange={e => update(s.id, "time", e.target.value)}
+                  onChange={(e) => update(s.id, "time", e.target.value)}
                 />
 
                 <select
-                  className="w-1/2 rounded-lg border border-[#665323] bg-[#252528] p-3 text-white focus:border-[#D4AF37] focus:outline-none"
+                  className="w-1/2 rounded-lg border border-[#665323] bg-[#252528] p-3 text-white"
                   value={s.unit}
-                  onChange={e => update(s.id, "unit", e.target.value)}
+                  onChange={(e) => update(s.id, "unit", e.target.value)}
                 >
                   <option>Hours</option>
                   <option>Days</option>
                   <option>Weeks</option>
                 </select>
               </div>
+
+              <p className="mb-2 text-sm text-gray-300">Target date</p>
+
+              <input
+                className="w-full rounded-lg border border-[#665323] bg-[#252528] p-3 text-white"
+                type="date"
+                min={new Date().toLocaleDateString("en-CA")}
+                value={s.deadline}
+                onChange={(e) => update(s.id, "deadline", e.target.value)}
+              />
             </div>
           ))}
 
           <button
             onClick={addSubject}
-            className="w-full rounded-lg border border-[#D4AF37] p-3 font-semibold text-[#D4AF37] transition hover:bg-[#D4AF37] hover:text-black"
+            className="w-full rounded-lg border border-[#D4AF37] p-3 font-semibold text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black"
           >
-            + Add Subject
+            + Add Goal
           </button>
 
           <button
             onClick={() => setStep(2)}
-            className="w-full rounded-lg bg-[#D4AF37] p-3 font-bold text-black transition hover:bg-[#E8C75A]"
+            className="w-full rounded-lg bg-[#D4AF37] p-3 font-bold text-black hover:bg-[#E8C75A]"
           >
             Continue →
           </button>
@@ -123,19 +120,19 @@ export default function PriorityPage() {
           {subjects.map((s, i) => (
             <div
               key={s.id}
-              className="flex items-center justify-between rounded-xl border border-[#3A3020] bg-[#171719] p-4 shadow-lg"
+              className="flex items-center justify-between gap-3 rounded-xl border border-[#3A3020] bg-[#171719] p-4"
             >
               <div>
                 <p className="font-bold text-[#D4AF37]">{s.name}</p>
                 <p className="text-sm text-gray-400">
-                  Deadline: {s.time} {s.unit}
+                  Target: {s.deadline}
                 </p>
               </div>
 
               <select
-                className="rounded-lg border border-[#665323] bg-[#252528] p-2 text-white focus:border-[#D4AF37] focus:outline-none"
+                className="rounded-lg border border-[#665323] bg-[#252528] p-2 text-white"
                 value={s.priority}
-                onChange={e => update(s.id, "priority", e.target.value)}
+                onChange={(e) => update(s.id, "priority", e.target.value)}
               >
                 <option value="">Priority</option>
                 {subjects.map((_, n) => (
@@ -149,20 +146,19 @@ export default function PriorityPage() {
 
           <button
             onClick={() => setStep(1)}
-            className="rounded-lg border border-[#665323] p-2 text-[#D4AF37] transition hover:bg-[#252528]"
+            className="rounded-lg border border-[#665323] p-2 text-[#D4AF37]"
           >
             ← Back
           </button>
 
           <button
             onClick={savePlan}
-            className="ml-3 rounded-lg bg-[#D4AF37] p-2 font-bold text-black transition hover:bg-[#E8C75A]"
+            className="ml-3 rounded-lg bg-[#D4AF37] p-2 font-bold text-black hover:bg-[#E8C75A]"
           >
             Save Plan
           </button>
         </div>
       )}
-      
     </main>
   );
 }
