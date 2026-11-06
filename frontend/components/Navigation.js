@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -6,20 +5,25 @@ import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const pathname = usePathname();
+  if (pathname === "/" || pathname === "/login")
+    {
+  return null;
+    }
 
   const links = [
-    { name: "Main Page", href: "/" },
-    { name: "Login", href: "/login" },
     { name: "Home", href: "/homepage" },
     { name: "Priority Plan", href: "/priority" },
     { name: "Schedule", href: "/schedule" },
+    { name: "Profile", href: "/profile" },
+    { name: "Settings", href: "/settings" },
+    { name: "Streak Board", href: "/streak" },
   ];
 
   return (
     <nav className="flex flex-wrap items-center justify-between gap-3 bg-[#0B0B0D] border-b border-[#665323] px-6 py-4">
-      <h1 className="text-2xl font-bold text-[#D4AF37]">
+      <Link href="/homepage" className="text-2xl font-bold text-[#D4AF37]">
         RePlan.
-      </h1>
+      </Link>
 
       <div className="flex flex-wrap items-center gap-3">
         {links.map((link) => (
