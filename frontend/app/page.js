@@ -10,9 +10,11 @@ export default function Home() {
           <Link href="/" className="text-amber-200">
             Home
           </Link>
-          <a href="/" className="text-stone-300 hover:text-amber-200 transition">
+          <Link
+            href="/about"
+            className="text-stone-300 hover:text-amber-200 transition">
             About
-          </a>
+          </Link>
           <Link
             href="/login"
             className="text-stone-300 hover:text-amber-200 transition"
