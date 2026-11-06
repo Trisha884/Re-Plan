@@ -1,85 +1,52 @@
 
+import Link from "next/link";
+
 export default function About() {
   return (
     <main className="min-h-screen bg-stone-950 px-8 py-16 text-stone-200">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-2xl">
 
-        <p className="mb-4 text-sm tracking-widest text-amber-400">
-          GET TO KNOW US
-        </p>
+        <Link
+          href="/"
+          className="mb-10 inline-block text-amber-400 hover:text-amber-200"
+        >
+          ← Back to Home
+        </Link>
 
-        <h1 className="mb-6 text-4xl font-bold text-amber-200 md:text-5xl">
+        <h1 className="mb-6 text-4xl font-bold text-amber-200">
           About RePlan.
         </h1>
 
-        <p className="max-w-3xl text-lg leading-8 text-stone-400">
-          RePlan is a goal planning and progress tracking platform designed
-          to help people turn their ambitions into achievable steps.
-          It encourages users to stay consistent, track their progress
-          and adjust their plans when things don't go as expected.
+        <p className="mb-10 text-lg leading-8 text-stone-400">
+          RePlan helps you turn your goals into manageable steps,
+          track your progress and stay organised.
         </p>
 
-        <section className="mt-14">
-          <h2 className="mb-4 text-2xl font-semibold text-amber-200">
-            The Problem
-          </h2>
+        <h2 className="mb-3 text-2xl font-semibold text-amber-200">
+          What We Do
+        </h2>
 
-          <p className="leading-8 text-stone-400">
-            We often set goals with excitement, but deadlines, unexpected
-            challenges and busy schedules can make it difficult to stay
-            consistent. Missing one deadline can sometimes make us feel
-            like we have failed completely.
-          </p>
-        </section>
+        <p className="mb-10 leading-8 text-stone-400">
+          Plan your goals, set priorities, track achievements and
+          adjust deadlines when plans change.
+        </p>
 
-        <section className="mt-10">
-          <h2 className="mb-4 text-2xl font-semibold text-amber-200">
-            Our Solution
-          </h2>
+        <h2 className="mb-3 text-2xl font-semibold text-amber-200">
+          Our Philosophy
+        </h2>
 
-          <p className="leading-8 text-stone-400">
-            RePlan makes goal management more flexible. Users can create
-            goals, organise them by priority, follow their schedules and
-            track completed work. When a deadline is missed, they can
-            create a new plan and continue without losing their progress.
-          </p>
-        </section>
+        <p className="text-xl font-semibold text-amber-400">
+          Progress over perfection.
+        </p>
 
-        <section className="mt-10">
-          <h2 className="mb-6 text-2xl font-semibold text-amber-200">
-            How It Works
-          </h2>
-
-          <div className="grid gap-5 md:grid-cols-2">
-            {[
-              ["01", "Create Goals", "Add the goals you want to achieve."],
-              ["02", "Set Priorities", "Organise your goals based on importance."],
-              ["03", "Track Progress", "Follow your schedule and mark goals complete."],
-              ["04", "Re-Plan", "Adjust missed deadlines and keep moving forward."]
-            ].map((item) => (
-              <div key={item[0]} className="rounded-xl bg-stone-900 p-6">
-                <p className="mb-3 text-amber-400">{item[0]}</p>
-                <h3 className="mb-2 text-xl font-semibold text-amber-200">
-                  {item[1]}
-                </h3>
-                <p className="leading-7 text-stone-400">{item[2]}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-14 border-t border-stone-800 pt-8">
-          <h2 className="mb-4 text-2xl font-semibold text-amber-200">
-            Our Philosophy
-          </h2>
-
-          <p className="text-xl leading-8 text-stone-300">
-            Progress is not about following a perfect plan.
-            It's about finding a way forward, even when plans change.
-          </p>
-        </section>
+        <p className="mt-3 leading-8 text-stone-400">
+          A missed deadline isn't the end. There's always room
+          to re-plan and keep moving forward.
+        </p>
 
       </div>
     </main>
   );
 }
+
+

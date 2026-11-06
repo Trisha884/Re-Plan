@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const pathname = usePathname();
-  if (pathname === "/" || pathname === "/login")
+  if (pathname === "/" || pathname === "/login" || pathname === "/about")
     {
   return null;
     }
